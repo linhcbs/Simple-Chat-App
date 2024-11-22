@@ -14,3 +14,4 @@ https://simple-chat-app-f18i.onrender.com/
 - Inappropriate use of comments
 
 ## Feel free to let me know if you have any feedback.
+(shouldve create a branch for deployment but im too lazy)

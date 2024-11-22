@@ -1,0 +1,81 @@
+/* Variables */
+:root {
+    --chat-container-width: 80vw;
+    --message-font-size: 1rem;
+}
+
+/* Reset */
+*{
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General */
+body {
+    background-color: whitesmoke;
+}
+
+.send-btn{
+    background-color: rgb(200, 200, 200);
+    border: none;
+    display: table-cell;
+    flex-grow: 1; 
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.send-btn:active{
+    border: 5px solid gray;
+}
+
+.send-btn:hover{
+    background-color: rgb(221, 221, 221);
+}
+
+/* Chat-related */
+.message-container{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: var(--chat-container-width);
+}
+
+.message-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.message-form__user-message {
+    border: 7.5px solid rgb(200, 200, 200);
+    font-family: sans-serif;
+    font-size: var(--message-font-size);
+    padding: 7.5px;
+    position: relative;
+    transition-duration: 0.2s;
+    width: 90%;
+}
+
+.message-form__user-message:focus{
+    border: 7.5px solid gray;
+}
+
+.message-container__message-list {
+    margin: 20px;
+    list-style-type: none;
+    font-family: sans-serif;
+    font-size: var(--message-font-size);
+}
+
+.message-list__message {
+    padding-bottom: 1rem;
+}
+
+.message-container__user-activity{
+    font-family: sans-serif;
+    margin: 10px;
+    font-weight: bold;
+}

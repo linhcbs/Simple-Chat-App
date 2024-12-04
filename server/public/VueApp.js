@@ -13,8 +13,8 @@ const app = Vue.createApp({
     methods: { 
         // shoulve generalized some of these
         createSocket() {
-            // this.socket = io(`ws://localhost:${this.PORT}`);
-            this.socket = io(`https://simple-chat-app-f18i.onrender.com/`);
+            this.socket = io(`ws://localhost:${this.PORT}`);
+            // this.socket = io(`https://simple-chat-app-f18i.onrender.com/`);
         },
         sendMessage (data){
             this.socket.emit('message', data);

@@ -5,6 +5,7 @@ Một ứng dụng chat ẩn danh cơ bản
 
 ## Tech stack
 - Front-end: HTML, CSS, JS, VueJS
-- Back-end: NodeJS (ExpressJS)
+- Back-end: NodeJS (ExpressJS), Socket.IO
+
 
 

@@ -1,17 +1,15 @@
 # Simple Chat App
 
-## Description
-A simple real-time app for (maybe) anonymous chatting.
+## Mô tả
+Một ứng dụng chat ẩn danh cơ bản
 
 ## Try it at:
-https://simple-chat-app-f18i.onrender.com/
+https://simple-chat-app-f18i.onrender.com/ 
+(load lâu vãi)
 
-## Built With  
-- NodeJS
-- VueJS and ExpressJS (barely)
-- HTML, CSS, JS (obviously)
-- Badly organized code
-- Inappropriate use of comments
+## Teach stack
+- Front-end: HTML, CSS, JS, VueJS
+- Back-end: NodeJS (ExpressJS)
 
 ## Feel free to let me know if you have any feedback.
 (shouldve create a branch for deployment but im too lazy)

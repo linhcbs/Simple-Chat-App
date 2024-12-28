@@ -1,7 +1,6 @@
 const app = Vue.createApp({
     data() {
         return {
-            PORT: 3000,
             socket: null,
             messagelist: [],
         }
@@ -16,8 +15,7 @@ const app = Vue.createApp({
             try {
                 const response = await fetch('/config');
                 const { port } = await response.json();
-                // this.socket = io(`ws://localhost:${port}`);
-                this.socket = io(`ws://simple-chat-app-f18i.onrender.com/`);
+                this.socket = io(`ws://localhost:${port}`);
             } catch (error) {
                 console.error("Error fetching the config:", error);
             }

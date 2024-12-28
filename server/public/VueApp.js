@@ -1,28 +1,33 @@
 const app = Vue.createApp({
-    data(){
+    data() {
         return {
             PORT: 3000,
             socket: null,
             messagelist: [],
         }
     },
-    created() {
-        this.createSocket();
-        this.listeningToServer();        
+    async created() {
+        await this.createSocket();
+        this.listeningToServer();
     },
-    methods: { 
+    methods: {
         // shoulve generalized some of these
-        createSocket() {
-            this.socket = io(`ws://localhost:${this.PORT}`);
-            // this.socket = io(`https://simple-chat-app-f18i.onrender.com/`);
+        async createSocket() {
+            try {
+                const response = await fetch('/config');
+                const { port } = await response.json();
+                this.socket = io(`ws://localhost:${port}`);
+            } catch (error) {
+                console.error("Error fetching the config:", error);
+            }
         },
-        sendMessage (data){
+        sendMessage(data) {
             this.socket.emit('message', data);
         },
-        updateMessageList (data){
+        updateMessageList(data) {
             this.messagelist.push(data);
         },
-        listeningToServer (){
+        listeningToServer() {
             // Update list if receive a message
             this.socket.on("message", (data) => {
                 // let proccessedData = JSON.parse(JSON.stringify(data));

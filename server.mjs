@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 
 // Use the provided port, if there isn't one, use port 3000.
-const PORT = process.env.PORT|| 3001;
+const PORT = process.env.PORT|| 3000;
 
 const app = express(); // Create a new express server
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files from the "public" directory to the client.

@@ -26,6 +26,10 @@ const expressServer = app.listen(PORT, () => {
 app.get('/config', (req, res) => {
     res.json({ port: PORT });
 });
+app.get("/", (req, res) => {
+    const view = path.join(__dirname, "index.html");
+    res.sendFile(view);
+})
 
 
 // Attach a new socket server to this HTTP server

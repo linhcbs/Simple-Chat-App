@@ -1,3 +1,6 @@
+netstat -ano | findstr :1414
+taskkill /PID <PID> /F
+
 # Logs
 logs
 *.log

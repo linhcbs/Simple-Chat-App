@@ -11,16 +11,13 @@ const __dirname = path.dirname(__filename);
 
 
 // Use the provided port, if there isn't one, use port 3000.
-const PORT = process.env.PORT|| 7070;
+const PORT = process.env.PORT|| 3001;
 
 const app = express(); // Create a new express server
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files from the "public" directory to the client.
 app.use(cors())
 
 // Start an HTTP server and listen on the specified PORT
-const expressServer = app.listen(PORT, () => {
-    console.log(`Listen on port ${PORT}`);
-});
 
 // routes
 app.get('/config', (req, res) => {
@@ -31,14 +28,16 @@ app.get("/", (req, res) => {
     res.sendFile(view);
 })
 
+const server = app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+});
 
 // Attach a new socket server to this HTTP server
-const io = new Server(expressServer, {
-    // Allow the front-end to access this server
+const io = new Server(server, {
     cors: {
-        origin: process.env.NODE_ENV === "production" ? false : [`http://localhost:${PORT}`, `http://127.0.0.1:${PORT}`],
-    }
-}); 
+        origin: "*", // Allow all origins, or you can specify your allowed origins here
+    },
+});
 
 io.on('connection', socket => { // Server listening to a specific event ("connection")
     let id = socket.id.substring(0, 5);
